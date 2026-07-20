@@ -127,10 +127,10 @@ body.dark-mode .stat-label{color:#9a9080;}
 /* CHARTS */
 .chart-wrap{background:var(--parchment-deep);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);margin-bottom:18px;}
 .chart-title{font-family:'Amiri',serif;font-size:1.05rem;margin-bottom:12px;color:var(--ink);}
-.bar-chart{display:flex;align-items:flex-end;gap:6px;height:130px;}
+.bar-chart{display:flex;align-items:flex-end;gap:6px;height:160px;}
 .bar-col{display:flex;flex-direction:column;align-items:center;flex:1;gap:3px;}
 .bar-fill{width:100%;border-radius:5px 5px 0 0;min-height:4px;transition:height .5s;}
-.bar-lbl{font-size:.65rem;color:var(--ink-soft);text-align:center;line-height:1.3;max-width:52px;}
+.bar-lbl{font-size:.65rem;color:var(--ink-soft);text-align:center;line-height:1.3;max-width:78px;overflow-wrap:break-word;word-break:keep-all;}
 .bar-val{font-size:.7rem;font-weight:700;color:var(--ink);}
 
 /* ===== SEARCH ===== */
@@ -1159,7 +1159,7 @@ function renderStats(){
 function renderBarChart(){
   const el=document.getElementById('barChart'); if(!el)return;
   const data=STATE.branches.map(b=>({
-    label:b.title.replace('فرع ','').replace(' رحمه الله','').replace('بن محمد المعيلي','').trim().slice(0,14),
+    label:b.title.replace('فرع ','').replace(' رحمه الله','').replace('بن محمد المعيلي','').trim(),
     val:(b.families||[]).length
   }));
   const max=Math.max(1,...data.map(d=>d.val));
